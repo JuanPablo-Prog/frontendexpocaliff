@@ -31,6 +31,8 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
     (item) => !item.roles || item.roles.includes(rol)
   );
 
+  const LOGO_URL = "https://imgs.search.brave.com/omsgYH-Np6XZDc5cDtnw_FPjkkhGowgbwYfyLCCnGwY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sZW9u/Zm9ydW12b2NhY2lv/bmFsLmNvbS5teC9t/ZWRpYS9pbWFnZXMv/ZWR1Y2F0aW9uL2xv/Z29fOTIuanBn";
+
   return (
     <div style={{
       minHeight: "100vh",
@@ -42,18 +44,18 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
       position: "relative",
       zIndex: 1,
     }}>
-      {/* ── Marca de agua con logo de la escuela ── */}
+      {/* ── Marca de agua fija (fondo exterior) ── */}
       <div style={{
         position: "fixed",
         top: 0,
         left: 0,
         width: "100%",
         height: "100%",
-        backgroundImage: `url('https://imgs.search.brave.com/omsgYH-Np6XZDc5cDtnw_FPjkkhGowgbwYfyLCCnGwY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sZW9u/Zm9ydW12b2NhY2lv/bmFsLmNvbS5teC9t/ZWRpYS9pbWFnZXMv/ZWR1Y2F0aW9uL2xv/Z29fOTIuanBn')`,
+        backgroundImage: `url('${LOGO_URL}')`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        backgroundSize: "300px",
-        opacity: 0.05,
+        backgroundSize: "400px",
+        opacity: 0.08,
         pointerEvents: "none",
         zIndex: 0,
       }} />
@@ -68,6 +70,21 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
         position: "relative",
         zIndex: 1,
       }}>
+        {/* ── Marca de agua dentro de la tarjeta ── */}
+        <div style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage: `url('${LOGO_URL}')`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "350px",
+          opacity: 0.06,
+          pointerEvents: "none",
+          zIndex: 0,
+        }} />
 
         {/* ────── BARRA SUPERIOR ÚNICA ────── */}
         <div style={{
@@ -79,6 +96,8 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
           height: "64px",
           flexShrink: 0,
           color: "#ffffff",
+          position: "relative",
+          zIndex: 2,
         }}>
           {/* Logo + Rol */}
           <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
@@ -167,7 +186,15 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
         </div>
 
         {/* ────── CONTENIDO ────── */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", background: "#f0f2f8", minHeight: 0 }}>
+        <div style={{
+          flex: 1,
+          display: "flex",
+          flexDirection: "column",
+          background: "transparent",  // ahora transparente para que se vea la marca de agua
+          minHeight: 0,
+          position: "relative",
+          zIndex: 1,
+        }}>
           <div style={{ flex: 1, padding: "24px 28px", overflowY: "auto" }} className="page-anim">
             {children}
           </div>
