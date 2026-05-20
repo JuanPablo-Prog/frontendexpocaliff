@@ -87,14 +87,14 @@ export default function DashboardPage() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "16px", marginBottom: "20px" }}>
         {rol !== "alumno" && (
           <>
-            <StatCard label="Materias registradas"  value={stats.materias}     color="#6366f1" />
-            <StatCard label="Grupos activos"        value={stats.grupos}        color="#f59e0b" />
-            <StatCard label="Alumnos registrados"   value={stats.alumnos}       color="#059669" />
+            <StatCard label="Materias registradas"  value={stats.materias}      />
+            <StatCard label="Grupos activos"        value={stats.grupos}         />
+            <StatCard label="Alumnos registrados"   value={stats.alumnos}        />
           </>
         )}
-        <StatCard label="Exposiciones"           value={stats.exposiciones}  color="#a78bfa" />
+        <StatCard label="Exposiciones"           value={stats.exposiciones}   />
         {rol === "alumno" && (
-          <StatCard label="Mis evaluaciones"      value={stats.evaluaciones}  color="#6366f1" />
+          <StatCard label="Mis evaluaciones"      value={stats.evaluaciones} />
         )}
       </div>
 
