@@ -39,7 +39,25 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
       backgroundAttachment: "fixed",
       display: "flex", alignItems: "center", justifyContent: "center",
       padding: "20px", fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
+      position: "relative",
+      zIndex: 1,
     }}>
+      {/* ── Marca de agua con logo de la escuela ── */}
+      <div style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        backgroundImage: `url('https://imgs.search.brave.com/omsgYH-Np6XZDc5cDtnw_FPjkkhGowgbwYfyLCCnGwY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sZW9u/Zm9ydW12b2NhY2lv/bmFsLmNvbS5teC9t/ZWRpYS9pbWFnZXMv/ZWR1Y2F0aW9uL2xv/Z29fOTIuanBn')`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundSize: "300px",
+        opacity: 0.05,
+        pointerEvents: "none",
+        zIndex: 0,
+      }} />
+
       <div style={{
         width: "100%", maxWidth: "1340px", minHeight: "88vh",
         background: "#fff",
@@ -47,6 +65,8 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
         boxShadow: "0 20px 80px rgba(15,23,42,0.14), 0 4px 20px rgba(79,70,229,0.08)",
         border: "1px solid rgba(79,70,229,0.10)",
         display: "flex", flexDirection: "column", overflow: "hidden",
+        position: "relative",
+        zIndex: 1,
       }}>
 
         {/* ────── BARRA SUPERIOR ÚNICA ────── */}
