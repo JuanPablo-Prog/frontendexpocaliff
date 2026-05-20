@@ -87,23 +87,23 @@ export default function DashboardPage() {
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "16px", marginBottom: "20px" }}>
         {rol !== "alumno" && (
           <>
-            <StatCard icon="📚" label="Materias registradas"  value={stats.materias}     color="#6366f1" />
-            <StatCard icon="🏫" label="Grupos activos"        value={stats.grupos}        color="#f59e0b" />
-            <StatCard icon="🎓" label="Alumnos registrados"   value={stats.alumnos}       color="#059669" />
+            <StatCard label="Materias registradas"  value={stats.materias}     color="#6366f1" />
+            <StatCard label="Grupos activos"        value={stats.grupos}        color="#f59e0b" />
+            <StatCard label="Alumnos registrados"   value={stats.alumnos}       color="#059669" />
           </>
         )}
-        <StatCard icon="🎤" label="Exposiciones"           value={stats.exposiciones}  color="#a78bfa" />
+        <StatCard label="Exposiciones"           value={stats.exposiciones}  color="#a78bfa" />
         {rol === "alumno" && (
-          <StatCard icon="⭐" label="Mis evaluaciones"      value={stats.evaluaciones}  color="#6366f1" />
+          <StatCard label="Mis evaluaciones"      value={stats.evaluaciones}  color="#6366f1" />
         )}
       </div>
 
       {/* Info box */}
       <div style={{ ...card, background: "#eef2ff", border: "1px solid #c7d2fe" }}>
         <p style={{ fontSize: "13px", color: "#4338ca", fontWeight: "500", lineHeight: 1.6 }}>
-          {rol === "admin"   && "👑 Tienes acceso completo al sistema: puedes gestionar todos los módulos y eliminar registros."}
-          {rol === "docente" && "📝 Puedes crear y editar materias, grupos, alumnos, equipos y exposiciones. Contacta al administrador para eliminar registros."}
-          {rol === "alumno"  && "🎤 Puedes ver las exposiciones programadas y enviar tus evaluaciones."}
+          {rol === "admin"   && " Tienes acceso completo al sistema: puedes gestionar todos los módulos y eliminar registros."}
+          {rol === "docente" && " Puedes crear y editar materias, grupos, alumnos, equipos y exposiciones. Contacta al administrador para eliminar registros."}
+          {rol === "alumno"  && " Puedes ver las exposiciones programadas y enviar tus evaluaciones."}
         </p>
       </div>
     </div>

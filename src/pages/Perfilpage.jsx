@@ -78,9 +78,9 @@ export default function PerfilPage({ toast, onProfileUpdate }) {
   };
 
   const rolInfo = {
-    admin:   { icon: "👑", color: "#f59e0b", desc: "Tienes acceso completo al sistema." },
-    docente: { icon: "📝", color: "#2563eb", desc: "Puedes gestionar grupos, exposiciones y alumnos." },
-    alumno:  { icon: "🎓", color: "#16a34a", desc: "Puedes ver exposiciones y enviar evaluaciones." },
+    admin:   {  color: "#f59e0b", desc: "Tienes acceso completo al sistema." },
+    docente: {  color: "#2563eb", desc: "Puedes gestionar grupos, exposiciones y alumnos." },
+    alumno:  {  color: "#16a34a", desc: "Puedes ver exposiciones y enviar evaluaciones." },
   };
   const ri = rolInfo[rolActual] || rolInfo.alumno;
 
@@ -195,7 +195,7 @@ export default function PerfilPage({ toast, onProfileUpdate }) {
       {rolActual === "alumno" && alumno && (
         <div style={card}>
           <h2 style={{ fontFamily: F.display, fontSize: "16px", fontWeight: "700", color: C.textPrimary, marginBottom: "16px" }}>
-            📋 Mi registro académico
+            Mi registro académico
           </h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             {[
@@ -210,7 +210,7 @@ export default function PerfilPage({ toast, onProfileUpdate }) {
             ))}
           </div>
           <p style={{ fontSize: "12px", color: C.textMuted, marginTop: "12px" }}>
-            💡 Si necesitas actualizar tu matrícula o datos académicos, contacta a tu docente o administrador.
+             Si necesitas actualizar tu matrícula o datos académicos, contacta a tu docente o administrador.
           </p>
         </div>
       )}
@@ -218,7 +218,7 @@ export default function PerfilPage({ toast, onProfileUpdate }) {
       {/* Banner si el alumno no tiene registro vinculado */}
       {rolActual === "alumno" && !alumno && (
         <div style={{ background: "#fef9c3", border: "1px solid #fde68a", borderRadius: "12px", padding: "16px 20px", fontSize: "13px", color: "#92400e" }}>
-          ⚠️ Tu cuenta aún no está vinculada a un registro de alumno. Esto puede impedir que puedas enviar evaluaciones. Contacta a tu docente o administrador.
+          Tu cuenta aún no está vinculada a un registro de alumno. Esto puede impedir que puedas enviar evaluaciones. Contacta a tu docente o administrador.
         </div>
       )}
     </div>

@@ -88,7 +88,7 @@ export default function CriteriosPage({ toast }) {
       {/* Suma de pesos */}
       {filtroMateria && items.length > 0 && (
         <div style={{ background: sumaPesos === 100 ? "#dcfce7" : "#fef9c3", border: `1px solid ${sumaPesos === 100 ? "#86efac" : "#fde68a"}`, borderRadius: "10px", padding: "10px 16px", marginBottom: "14px", fontSize: "13px", fontWeight: "600", color: sumaPesos === 100 ? "#166534" : "#92400e" }}>
-          {sumaPesos === 100 ? "✅ Los pesos suman 100% — rúbrica completa." : `⚠️ Los pesos suman ${sumaPesos}% (debe ser 100%).`}
+          {sumaPesos === 100 ? "Los pesos suman 100% — rúbrica completa." : `Los pesos suman ${sumaPesos}% (debe ser 100%).`}
         </div>
       )}
 

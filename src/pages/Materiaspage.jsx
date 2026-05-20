@@ -79,7 +79,7 @@ export default function MateriasPage({ toast }) {
       {/* Table card */}
       <div style={{ ...card, padding: 0, overflow: "hidden" }}>
         {loading ? <LoadingSpinner /> : filtered.length === 0 ? (
-          <EmptyState icon="📚" title="Sin materias" description="Aún no hay materias registradas." />
+          <EmptyState title="Sin materias" description="Aún no hay materias registradas." />
         ) : (
           <table style={{ width: "100%", borderCollapse: "collapse" }}>
             <thead>

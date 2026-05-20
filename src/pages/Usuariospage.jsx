@@ -115,9 +115,9 @@ export default function UsuariosPage({ toast }) {
       {/* Tarjetas resumen */}
       <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "14px", marginBottom: "20px" }}>
         {[
-          { rol: "admin",   icon: "👑", color: "#f59e0b", label: "Administradores" },
-          { rol: "docente", icon: "📝", color: "#2563eb", label: "Docentes" },
-          { rol: "alumno",  icon: "🎓", color: "#16a34a", label: "Alumnos" },
+          { rol: "admin",    color: "#f59e0b", label: "Administradores" },
+          { rol: "docente",  color: "#2563eb", label: "Docentes" },
+          { rol: "alumno",   color: "#16a34a", label: "Alumnos" },
         ].map(({ rol, icon, color, label }) => (
           <div key={rol} onClick={() => setFiltroRol(filtroRol === rol ? "" : rol)}
             style={{ ...card, borderLeft: `4px solid ${color}`, cursor: "pointer", opacity: filtroRol && filtroRol !== rol ? 0.5 : 1, transition: "opacity 0.15s" }}>
@@ -204,9 +204,9 @@ export default function UsuariosPage({ toast }) {
           <label style={{ fontSize: "11px", fontWeight: "700", color: C.textSecond, textTransform: "uppercase", letterSpacing: "0.6px", display: "block", marginBottom: "8px" }}>Rol del usuario</label>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}>
             {[
-              { value: "alumno",  icon: "🎓", desc: "Puede evaluar exposiciones" },
-              { value: "docente", icon: "📝", desc: "Gestiona grupos y exposiciones" },
-              { value: "admin",   icon: "👑", desc: "Acceso completo al sistema" },
+              { value: "alumno",   desc: "Puede evaluar exposiciones" },
+              { value: "docente",  desc: "Gestiona grupos y exposiciones" },
+              { value: "admin",    desc: "Acceso completo al sistema" },
             ].map((r) => (
               <div key={r.value} onClick={() => handleRolChange(r.value)}
                 style={{ border: `2px solid ${createForm.rol === r.value ? C.primary : C.border}`, borderRadius: "10px", padding: "12px 10px", cursor: "pointer", background: createForm.rol === r.value ? "#eff6ff" : "#fff", transition: "all 0.15s", textAlign: "center" }}>
@@ -268,9 +268,9 @@ export default function UsuariosPage({ toast }) {
 
         <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
           {[
-            { value: "alumno",  icon: "🎓", desc: "Puede evaluar exposiciones" },
-            { value: "docente", icon: "📝", desc: "Gestiona grupos y exposiciones" },
-            { value: "admin",   icon: "👑", desc: "Acceso completo al sistema" },
+            { value: "alumno",   desc: "Puede evaluar exposiciones" },
+            { value: "docente",  desc: "Gestiona grupos y exposiciones" },
+            { value: "admin",   desc: "Acceso completo al sistema" },
           ].map((r) => (
             <div key={r.value} onClick={() => setNuevoRol(r.value)}
               style={{ display: "flex", alignItems: "center", gap: "12px", border: `2px solid ${nuevoRol === r.value ? C.primary : C.border}`, borderRadius: "10px", padding: "10px 14px", cursor: "pointer", background: nuevoRol === r.value ? "#eff6ff" : "#fff", transition: "all 0.15s" }}>
@@ -286,7 +286,7 @@ export default function UsuariosPage({ toast }) {
 
         {nuevoRol !== rolModal.usuario?.rol && (
           <div style={{ background: "#fef9c3", border: "1px solid #fde68a", borderRadius: "9px", padding: "10px 14px", fontSize: "12px", color: "#92400e" }}>
-            ⚠️ Este cambio afecta inmediatamente los permisos del usuario.
+             Este cambio afecta inmediatamente los permisos del usuario.
           </div>
         )}
       </Modal>

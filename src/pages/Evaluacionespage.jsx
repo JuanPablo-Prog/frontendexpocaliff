@@ -233,7 +233,7 @@ export default function EvaluacionesPage({ toast }) {
       <div style={{ display: "flex", justifyContent: "flex-end", gap: "10px", marginBottom: "18px" }}>
         <button onClick={fetchEvaluaciones} style={btn("ghost")}>↻ Actualizar</button>
         {alumno && (
-          <button onClick={abrirNuevaEval} style={btn("accent")}>⭐ Nueva evaluación</button>
+          <button onClick={abrirNuevaEval} style={btn("accent")}>Nueva evaluación</button>
         )}
       </div>
 
@@ -241,7 +241,6 @@ export default function EvaluacionesPage({ toast }) {
       <div style={{ ...card, padding: 0, overflow: "hidden" }}>
         {loading ? <LoadingSpinner /> : evaluaciones.length === 0 ? (
           <EmptyState
-            icon="⭐"
             title="Sin evaluaciones"
             description={alumno
               ? "Aún no has evaluado ninguna exposición. Ve a Exposiciones y haz clic en Evaluar."
@@ -300,7 +299,7 @@ export default function EvaluacionesPage({ toast }) {
       {/* ── Modal: Nueva evaluación ────────────────────────────────────────── */}
       <Modal
         open={evalModal.open}
-        title="⭐ Evaluar exposición"
+        title="Evaluar exposición"
         onClose={() => setEvalModal({ open: false })}
         width="600px"
         footer={
@@ -330,11 +329,11 @@ export default function EvaluacionesPage({ toast }) {
         {/* Info: evaluador */}
         {misAlumnos.length > 0 ? (
           <div style={{ background: "#f0f9ff", border: "1px solid #bae6fd", borderRadius: "9px", padding: "10px 14px", fontSize: "13px", color: "#0369a1" }}>
-            📋 Evaluando como: <strong>{misAlumnos[0]?.nombre} {misAlumnos[0]?.apellido}</strong> ({misAlumnos[0]?.matricula})
+            Evaluando como: <strong>{misAlumnos[0]?.nombre} {misAlumnos[0]?.apellido}</strong> ({misAlumnos[0]?.matricula})
           </div>
         ) : (
           <div style={{ background: "#fef9c3", border: "1px solid #fde68a", borderRadius: "9px", padding: "10px 14px", fontSize: "13px", color: "#92400e" }}>
-            ⚠️ Tu cuenta no está vinculada a un registro de alumno. Pide al docente o administrador que lo vincule para poder evaluar.
+            Tu cuenta no está vinculada a un registro de alumno. Pide al docente o administrador que lo vincule para poder evaluar.
           </div>
         )}
 
@@ -417,7 +416,7 @@ export default function EvaluacionesPage({ toast }) {
           </>
         ) : evalForm.id_exposicion ? (
           <div style={{ background: "#fef9c3", border: "1px solid #fde68a", borderRadius: "9px", padding: "10px 14px", fontSize: "13px", color: "#92400e" }}>
-            ⚠️ Esta exposición no tiene criterios de evaluación configurados. Contacta a tu docente.
+            Esta exposición no tiene criterios de evaluación configurados. Contacta a tu docente.
           </div>
         ) : null}
       </Modal>
@@ -456,7 +455,7 @@ export default function EvaluacionesPage({ toast }) {
 
             {detalleModal.data.comentario_general && (
               <div style={{ background: "#f0f9ff", border: "1px solid #bae6fd", borderRadius: "9px", padding: "10px 14px", fontSize: "13px", color: "#0369a1" }}>
-                💬 {detalleModal.data.comentario_general}
+                {detalleModal.data.comentario_general}
               </div>
             )}
           </>

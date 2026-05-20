@@ -129,10 +129,10 @@ export default function ExposicionesPage({ toast, onEvaluar }) {
                     <td style={{ ...td, textAlign: "right" }}>
                       <div style={{ display: "flex", gap: "6px", justifyContent: "flex-end" }}>
                         {alumno && (
-                          <button onClick={() => onEvaluar(item)} style={btn("accent", "sm")}>⭐ Evaluar</button>
+                          <button onClick={() => onEvaluar(item)} style={btn("accent", "sm")}>Evaluar</button>
                         )}
                         {!alumno && (
-                          <button onClick={() => openResumen(item)} style={btn("ghost", "sm")}>📊 Resumen</button>
+                          <button onClick={() => openResumen(item)} style={btn("ghost", "sm")}>Resumen</button>
                         )}
                         {canWrite  && <button onClick={() => openEdit(item)} style={btn("ghost", "sm")}>✏️</button>}
                         {canDelete && <button onClick={() => setConfirm({ open: true, id: item.id_exposicion })} style={btn("danger", "sm")}>🗑</button>}
@@ -168,7 +168,7 @@ export default function ExposicionesPage({ toast, onEvaluar }) {
       </Modal>
 
       {/* Resumen modal */}
-      <Modal open={resumenModal.open} title={`📊 Resumen: ${resumenModal.data?.titulo || ""}`} onClose={() => setResumenModal({ open: false, data: null, loading: false })} width="600px"
+      <Modal open={resumenModal.open} title={`Resumen: ${resumenModal.data?.titulo || ""}`} onClose={() => setResumenModal({ open: false, data: null, loading: false })} width="600px"
         footer={<button onClick={() => setResumenModal({ open: false, data: null, loading: false })} style={btn("primary")}>Cerrar</button>}
       >
         {resumenModal.loading ? <LoadingSpinner text="Calculando promedios…" /> : resumenModal.data && (
