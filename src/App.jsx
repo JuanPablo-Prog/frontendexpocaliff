@@ -10,7 +10,7 @@ import EquiposPage from "./pages/Equipospage";
 import ExposicionesPage from "./pages/Exposicionespage";
 import EvaluacionesPage from "./pages/Evaluacionespage";
 import UsuariosPage from "./pages/Usuariospage";
-import PerfilPage from "./pages/PerfilPage";
+import PerfilPage from "./pages/Perfilpage";   // ← "Perfilpage" con p minúscula
 import ToastContainer from "./components/Toast";
 
 import { getUsuario, clearSession } from './api/Client';
