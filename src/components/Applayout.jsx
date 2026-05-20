@@ -31,20 +31,18 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
     (item) => !item.roles || item.roles.includes(rol)
   );
 
-  const LOGO_URL = "https://imgs.search.brave.com/omsgYH-Np6XZDc5cDtnw_FPjkkhGowgbwYfyLCCnGwY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9sZW9u/Zm9ydW12b2NhY2lv/bmFsLmNvbS5teC9t/ZWRpYS9pbWFnZXMv/ZWR1Y2F0aW9uL2xv/Z29fOTIuanBn";
+  const LOGO_URL = "https://imgs.search.brave.com/6tKmXcdsfFdDIyeTZ6m4xX87IpaJq_Mlj8NPe5klNKY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9yaW5h/Y2lvbmFsLnRlY25t/Lm14L3JldHJpZXZl/LzI1MmUwMTA0LWE3/YjEtNDhlYy1hMjZj/LWNmODRmYWM1OTgz/NA";
 
   return (
     <div style={{
       minHeight: "100vh",
       background: "#f0f2f8",
-      backgroundImage: "radial-gradient(ellipse 80% 60% at 50% -20%, rgba(99,102,241,0.08) 0%, transparent 60%)",
-      backgroundAttachment: "fixed",
       display: "flex", alignItems: "center", justifyContent: "center",
       padding: "20px", fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
       position: "relative",
       zIndex: 1,
     }}>
-      {/* ── Marca de agua fija (fondo exterior) ── */}
+      {/* ── Marca de agua fija (fondo de toda la ventana) ── */}
       <div style={{
         position: "fixed",
         top: 0,
@@ -54,8 +52,8 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
         backgroundImage: `url('${LOGO_URL}')`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        backgroundSize: "400px",
-        opacity: 0.08,
+        backgroundSize: "450px",
+        opacity: 0.12,
         pointerEvents: "none",
         zIndex: 0,
       }} />
@@ -81,7 +79,7 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           backgroundSize: "350px",
-          opacity: 0.06,
+          opacity: 0.1,
           pointerEvents: "none",
           zIndex: 0,
         }} />
@@ -190,7 +188,7 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
           flex: 1,
           display: "flex",
           flexDirection: "column",
-          background: "transparent",  // ahora transparente para que se vea la marca de agua
+          background: "transparent",  // importante para que se vea la marca
           minHeight: 0,
           position: "relative",
           zIndex: 1,
