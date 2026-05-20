@@ -99,7 +99,7 @@ export default function PerfilPage({ toast, onProfileUpdate }) {
     <div className="page-anim" style={{ maxWidth: "680px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "20px" }}>
 
       {/* Cabecera de perfil */}
-      <div style={{ ...card, background: "linear-gradient(135deg, #0c1628 0%, #1e3a5f 100%)", border: "none", display: "flex", alignItems: "center", gap: "20px" }}>
+      <div style={{ ...card, background: "linear-gradient(135deg,rgb(48, 91, 170) 0%, #1e3a5f 100%)", border: "none", display: "flex", alignItems: "center", gap: "20px" }}>
         {/* Avatar */}
         <div style={{ width: "72px", height: "72px", borderRadius: "50%", background: ri.color, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: F.display, fontWeight: "800", fontSize: "26px", color: "#fff", flexShrink: 0, boxShadow: `0 0 0 4px ${ri.color}40` }}>
           {perfil.nombre?.[0]}{perfil.apellido?.[0]}
