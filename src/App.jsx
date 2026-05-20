@@ -10,7 +10,7 @@ import EquiposPage from "./pages/Equipospage";
 import ExposicionesPage from "./pages/Exposicionespage";
 import EvaluacionesPage from "./pages/Evaluacionespage";
 import UsuariosPage from "./pages/Usuariospage";
-import PerfilPage from "./pages/Perfilpage";
+import PerfilPage from "./pages/PerfilPage";
 import ToastContainer from "./components/Toast";
 
 import { getUsuario, clearSession } from './api/Client';
@@ -47,13 +47,7 @@ export default function App() {
           />
         );
       case "evaluaciones": return <EvaluacionesPage toast={toast} />;
-      case "perfil":
-        return (
-          <PerfilPage
-            toast={toast}
-            onProfileUpdate={(updatedUser) => setUsuario(updatedUser)}
-          />
-        );
+      case "perfil":       return <PerfilPage       toast={toast} />;
       default:             return <DashboardPage    toast={toast} />;
     }
   };
