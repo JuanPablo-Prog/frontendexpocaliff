@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+const API_URL = import.meta.env.VITE_API_URL || "https://exposcalif-backend-v2.onrender.com";
 
 export const getToken   = () => localStorage.getItem("ec_token");
 export const getUsuario = () => JSON.parse(localStorage.getItem("ec_usuario") || "null");
