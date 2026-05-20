@@ -52,8 +52,8 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
         backgroundImage: `url('${LOGO_URL}')`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        backgroundSize: "450px",
-        opacity: 0.12,
+        backgroundSize: "600px",   // más grande
+        opacity: 0.06,             // menos opaca (más transparente)
         pointerEvents: "none",
         zIndex: 0,
       }} />
@@ -78,8 +78,8 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
           backgroundImage: `url('${LOGO_URL}')`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-          backgroundSize: "350px",
-          opacity: 0.1,
+          backgroundSize: "550px",  // también grande
+          opacity: 0.06,           // misma opacidad suave
           pointerEvents: "none",
           zIndex: 0,
         }} />
@@ -188,7 +188,7 @@ export default function AppLayout({ page, setPage, usuario, onLogout, children }
           flex: 1,
           display: "flex",
           flexDirection: "column",
-          background: "transparent",  // importante para que se vea la marca
+          background: "transparent",
           minHeight: 0,
           position: "relative",
           zIndex: 1,
