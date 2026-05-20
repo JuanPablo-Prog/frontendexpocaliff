@@ -1,129 +1,137 @@
-import { F } from "../api/Tokens";
 import { getRol } from "../api/Auth";
 
 const NAV_ITEMS = [
-  { page: "dashboard",    label: "Dashboard",    icon: "◈",  roles: ["admin", "docente", "alumno"] },
-  { page: "usuarios",     label: "Usuarios",     icon: "👤", roles: ["admin"] },
-  { page: "materias",     label: "Materias",     icon: "📚", roles: ["admin", "docente"] },
-  { page: "criterios",    label: "Criterios",    icon: "📋", roles: ["admin", "docente"] },
-  { page: "grupos",       label: "Grupos",       icon: "🏫", roles: ["admin", "docente"] },
-  { page: "alumnos",      label: "Alumnos",      icon: "🎓", roles: ["admin", "docente"] },
-  { page: "equipos",      label: "Equipos",      icon: "👥", roles: ["admin", "docente"] },
-  { page: "exposiciones", label: "Exposiciones", icon: "🎤", roles: ["admin", "docente", "alumno"] },
-  { page: "evaluaciones", label: "Evaluaciones", icon: "⭐", roles: ["admin", "docente", "alumno"] },
+  { page: "dashboard",    label: "Inicio" },
+  { page: "usuarios",     label: "Usuarios",   roles: ["admin"] },
+  { page: "materias",     label: "Materias",   roles: ["admin", "docente"] },
+  { page: "criterios",    label: "Criterios",  roles: ["admin", "docente"] },
+  { page: "grupos",       label: "Grupos",     roles: ["admin", "docente"] },
+  { page: "alumnos",      label: "Alumnos",    roles: ["admin", "docente"] },
+  { page: "equipos",      label: "Equipos",    roles: ["admin", "docente"] },
+  { page: "exposiciones", label: "Exposiciones", roles: ["admin", "docente", "alumno"] },
+  { page: "evaluaciones", label: "Evaluaciones", roles: ["admin", "docente", "alumno"] },
 ];
 
 export default function TopNav({ page, setPage, usuario, onLogout }) {
   const rol = getRol();
+  const itemsFiltrados = NAV_ITEMS.filter(
+    (item) => !item.roles || item.roles.includes(rol)
+  );
 
   return (
     <div style={{
-      background: "#0c1628",
+      background: "#1e3a8a",
       display: "flex",
       alignItems: "center",
       justifyContent: "space-between",
-      padding: "0 28px",
-      height: "68px",
-      borderBottom: "1px solid rgba(129,140,248,0.15)",
+      padding: "0 24px",
+      height: "64px",
       flexShrink: 0,
+      fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
+      color: "#ffffff",
     }}>
-      {/* ── Logo + rol ─────────────────────────────── */}
-      <div style={{ display: "flex", alignItems: "center", gap: "24px", flexShrink: 0 }}>
-        <div style={{
-          fontFamily: F.display, fontSize: "1.6rem", fontWeight: "400",
-          fontStyle: "italic", color: "#fff", letterSpacing: "-0.01em", lineHeight: 1,
-        }}>
-          Expos<span style={{ color: "#818cf8" }}>Calif</span>
-          <span style={{
-            display: "inline-block", width: "6px", height: "6px",
-            background: "#818cf8", borderRadius: "50%", marginLeft: "6px",
-            verticalAlign: "middle", marginBottom: "4px",
-          }} />
-        </div>
+      {/* ── Logo ── */}
+      <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
         <span style={{
-          fontSize: "10px", fontWeight: "600", color: "#818cf8",
-          textTransform: "uppercase", letterSpacing: "1.8px",
-          background: "rgba(129,140,248,0.12)", borderRadius: "6px",
-          padding: "4px 10px",
+          fontWeight: "700",
+          fontSize: "1.25rem",
+          letterSpacing: "-0.3px",
+        }}>
+          Expos<span style={{ color: "#93c5fd" }}>Calif</span>
+        </span>
+        <span style={{
+          fontSize: "11px",
+          fontWeight: "600",
+          color: "#bfdbfe",
+          background: "rgba(255,255,255,0.12)",
+          padding: "2px 10px",
+          borderRadius: "12px",
+          textTransform: "uppercase",
+          letterSpacing: "0.5px",
         }}>
           {rol}
         </span>
       </div>
 
-      {/* ── Navegación ─────────────────────────────── */}
+      {/* ── Navegación ── */}
       <nav style={{
-        display: "flex", alignItems: "center", gap: "4px",
-        flex: 1, justifyContent: "center", margin: "0 24px",
-        overflowX: "auto", flexWrap: "nowrap",
+        display: "flex",
+        alignItems: "center",
+        gap: "2px",
+        flex: 1,
+        justifyContent: "center",
+        margin: "0 20px",
+        overflowX: "auto",
       }}>
-        {NAV_ITEMS.filter((n) => n.roles.includes(rol)).map((item) => {
+        {itemsFiltrados.map((item) => {
           const active = page === item.page;
           return (
             <button
               key={item.page}
               onClick={() => setPage(item.page)}
               style={{
-                display: "flex", alignItems: "center", gap: "7px",
-                padding: "10px 16px", borderRadius: "10px", border: "none",
-                background: active ? "rgba(129,140,248,0.18)" : "transparent",
-                color: active ? "#c7d2fe" : "#64748b",
+                background: active ? "rgba(255,255,255,0.15)" : "transparent",
+                color: active ? "#ffffff" : "#bfdbfe",
                 fontWeight: active ? "600" : "400",
-                fontSize: "13px", fontFamily: F.body,
-                cursor: "pointer", whiteSpace: "nowrap",
-                transition: "all 0.15s",
-                borderBottom: active ? "3px solid #818cf8" : "3px solid transparent",
+                border: "none",
+                borderRadius: "8px",
+                padding: "6px 16px",
+                fontSize: "13.5px",
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                transition: "background 0.15s, color 0.15s",
+                fontFamily: "inherit",
               }}
               onMouseEnter={(e) => {
-                if (!active) {
-                  e.currentTarget.style.background = "#162033";
-                  e.currentTarget.style.color = "#94a3b8";
-                }
+                if (!active) e.currentTarget.style.background = "rgba(255,255,255,0.08)";
               }}
               onMouseLeave={(e) => {
-                if (!active) {
-                  e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = "#64748b";
-                }
+                if (!active) e.currentTarget.style.background = "transparent";
               }}
             >
-              <span style={{ fontSize: "15px", flexShrink: 0 }}>{item.icon}</span>
               {item.label}
             </button>
           );
         })}
       </nav>
 
-      {/* ── Usuario + cerrar sesión ────────────────── */}
-      <div style={{ display: "flex", alignItems: "center", gap: "18px", flexShrink: 0 }}>
+      {/* ── Usuario ── */}
+      <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
         <button
           onClick={() => setPage("perfil")}
           style={{
-            background: "transparent", border: "none", cursor: "pointer",
-            display: "flex", alignItems: "center", gap: "10px",
-            color: "#e2e8f0", fontSize: "13px", fontFamily: F.body, fontWeight: "500",
-            transition: "color 0.15s",
-            padding: "4px 8px", borderRadius: "8px",
+            background: "transparent",
+            border: "none",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            color: "#ffffff",
+            fontSize: "13.5px",
+            fontWeight: "500",
+            fontFamily: "inherit",
+            padding: "4px 8px",
+            borderRadius: "8px",
+            transition: "background 0.15s",
           }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#162033";
-            e.currentTarget.style.color = "#fff";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.color = "#e2e8f0";
-          }}
+          onMouseEnter={(e) => e.currentTarget.style.background = "rgba(255,255,255,0.08)"}
+          onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
         >
           <div style={{
-            width: "34px", height: "34px", borderRadius: "50%",
-            background: "linear-gradient(135deg, #c7d2fe, #818cf8)",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontFamily: F.display, fontStyle: "italic", fontSize: "14px",
-            color: "#312e81", fontWeight: "bold",
-            boxShadow: "0 2px 8px rgba(99,102,241,0.3)",
+            width: "32px",
+            height: "32px",
+            borderRadius: "50%",
+            background: "#bfdbfe",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontWeight: "700",
+            fontSize: "14px",
+            color: "#1e3a8a",
           }}>
             {usuario?.nombre?.[0]}{usuario?.apellido?.[0]}
           </div>
-          <span style={{ maxWidth: "120px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+          <span style={{ maxWidth: "110px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
             {usuario?.nombre} {usuario?.apellido}
           </span>
         </button>
@@ -131,23 +139,27 @@ export default function TopNav({ page, setPage, usuario, onLogout }) {
         <button
           onClick={onLogout}
           style={{
-            background: "transparent", border: "none", cursor: "pointer",
-            color: "#64748b", fontSize: "13px", fontFamily: F.body,
-            display: "flex", alignItems: "center", gap: "6px",
-            padding: "6px 10px", borderRadius: "8px",
-            transition: "all 0.15s",
+            background: "rgba(255,255,255,0.08)",
+            border: "none",
+            borderRadius: "8px",
+            color: "#bfdbfe",
+            fontSize: "12.5px",
+            fontWeight: "600",
+            fontFamily: "inherit",
+            cursor: "pointer",
+            padding: "6px 14px",
+            transition: "background 0.15s, color 0.15s",
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.background = "#1e1030";
-            e.currentTarget.style.color = "#f87171";
+            e.currentTarget.style.background = "rgba(255,255,255,0.18)";
+            e.currentTarget.style.color = "#ffffff";
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.color = "#64748b";
+            e.currentTarget.style.background = "rgba(255,255,255,0.08)";
+            e.currentTarget.style.color = "#bfdbfe";
           }}
         >
-          <span style={{ fontSize: "16px" }}>⎋</span>
-          <span style={{ fontWeight: "500" }}>Salir</span>
+          Cerrar sesión
         </button>
       </div>
     </div>
